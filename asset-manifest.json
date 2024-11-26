@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/RobertPortfolio/Hypertrophy-App/static/css/main.26eea8c4.css",
+    "main.js": "/RobertPortfolio/Hypertrophy-App/static/js/main.592b3145.js",
+    "static/media/body-fat-percentage-men-women.png": "/RobertPortfolio/Hypertrophy-App/static/media/body-fat-percentage-men-women.30672840b5be18466edf.png",
+    "index.html": "/RobertPortfolio/Hypertrophy-App/index.html",
+    "main.26eea8c4.css.map": "/RobertPortfolio/Hypertrophy-App/static/css/main.26eea8c4.css.map",
+    "main.592b3145.js.map": "/RobertPortfolio/Hypertrophy-App/static/js/main.592b3145.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26eea8c4.css",
+    "static/js/main.592b3145.js"
+  ]
+}
