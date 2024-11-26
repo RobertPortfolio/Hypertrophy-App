@@ -1,0 +1,14 @@
+
+.accordion-header:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  color: lightgrey;
+}
+
+.accordion-header.open{
+  text-decoration: underline;
+}
+
+.accordion-header.open:hover{
+  text-decoration: none;
+}

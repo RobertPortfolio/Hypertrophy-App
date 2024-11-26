@@ -1,0 +1,20 @@
+
+.input-custom {
+    font-weight: 600;
+}
+
+.day-custom {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+}
+
+.input-custom:focus {
+  border-color: #d3d3d3; /* Светло-серый цвет */
+  box-shadow: 0 0 0 0.2rem rgba(211, 211, 211, 0.5);
+}
+
+
+.input-custom::placeholder {
+  color: #b5b5b5; /* Светло-серый цвет */
+  opacity: 1; /* Убедитесь, что он полностью видим */
+}
