@@ -51,10 +51,10 @@ const MobileHeader = () => {
                 </li>
                 <li className="list-group-item mb-3">
                   <Link 
-                    to="/calorie-calc" 
+                    to="/programs" 
                     className="custom-link"
                     onClick={handleToggle}>
-                    {translate('calorieCalc', lang)}
+                    {translate('programs', lang)}
                   </Link>
                 </li>
                 <li className="list-group-item mb-3">
@@ -70,7 +70,7 @@ const MobileHeader = () => {
           </Offcanvas>
         </div>
 
-        <Link to="/" className="col-auto logo-font custom-link">Cocksucker</Link>
+        <Link to="/" className="col-auto logo-font custom-link">SuperSuslo</Link>
 
         <div className="col-auto">
           <LanguageSwitch />

@@ -1,0 +1,10 @@
+.card-custom {
+	cursor: pointer;
+    text-decoration: none;
+}
+
+.card-custom:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Добавление тени */
+    transform: scale(1.02); /* Легкое увеличение карточки */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Плавный переход */
+}

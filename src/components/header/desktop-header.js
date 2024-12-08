@@ -32,9 +32,9 @@ const DesktopHeader = () => {
             </li>
             <li className="h-100 ">
               <Link 
-                to="/calorie-calc" 
+                to="/programs" 
                 className="nav-link h-100 custom-link d-flex align-items-center">
-                {translate('calorieCalc', lang)}
+                {translate('programs', lang)}
               </Link>
             </li>
             <li className="h-100">

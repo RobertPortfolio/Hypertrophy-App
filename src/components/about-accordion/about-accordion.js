@@ -1,13 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import AccordionItem from '../accordion-item';
+import { translate } from '../translations';
 
 const AboutAccordion = () => {
 
+	const lang = useSelector(state => state.language.lang);
+	
+
 	const questions = [
-	  ['How is the strength determined?', 'The strength score is closely related'],
-	  ['How is the strength determined?', 'The strength score is closely related'],
-	  ['How is the strength determined?', 'The strength score is closely related'],
-	  ['How is the strength determined?', 'Susloore is closely related'],
+	  ['Мои мутки только через Серёгу', 'Он продавал золото, время 23, Одесса Инесса идёт в туалет Кресло-каталка хорошо пристёгнута к ней'],
+	  ['я портной, жена кухарка, сын вафел', 'по рации сообщают 3 парня в погонах находятся в зоне этого района угнали машину принадлежащую Роме ну-ка багажник а чего у вас не работают дворники идёт дождь, по рукам дрожь портной думает он дрозд ну что ж'],
+	  ['эй, типочек, лови мой салам, ну как дела? ', 'однокласница родила сиамских, а? да нихуя мы с тобой согласны поругаться ходит слух, что ты приторговываешь ща узнаем, где дурь, пидор вспоминаешь, когда лизал клитор ты ведь молод, бро с днём рождения, Блёв подгорел шашлычок отпиздошили за не очень хорошие дела'],
+	  ['вскидываем зиги, кончаются сиги', 'я щелкаю пальцем и его шестерка бежит за нас в магазин'],
+	  ['Знакомые помогли устроиться на пикантную работку', 'Эй чувак, твоя специальность - работать глоткой Сделай малафьи быстро пару глотков А потом сам скажешь, что по вкусу как мёд От дурмана меня сильно прет Прохожей даме предлагаю сделать аборт Хоть она и чернокожая Отлично сыграла на моей флейте кожаной'],
+	  [ translate('restBetweenSetsHeader', lang), translate('restBetweenSetsDescription', lang) ],
+	  [ translate('trackTrainingHeader', lang), translate('trackTrainingDescription', lang) ],
+		
 	];
 
 	return (
@@ -16,9 +25,6 @@ const AboutAccordion = () => {
 				return (
 					<AccordionItem key={idx} header={q[0]} body={q[1]}/>)
 			})}
-	      	<AccordionItem header="How is the strength score determined?" body="The strength score is closely related to the Wilks score, which is commonly used in powerlifting to compare totals across weight classes. While the Wilks score is designed to measure powerlifting totals, the strength score is designed to measure strength per-lift.The exact definition of the strength score for a single lift is this: If the lifter were as strong in the performed lift as he or she were in all other lifts, then the score of the lift is equal to 1/4 of the lifter's hypothetical powerlifting wilks, in addition to an age adjustment (see the references below) if the lifter is younger than 23 or older than 40.The 'total' strength score averages the highest scores in each category: The squat, floor pull, pull-up, horizontal press, and vertical press.The score for a single muscle group is measured by a weighted average of the lifts which involve that muscle group."/>
-	      	<AccordionItem header="suslo" body="musaslo"/>
-	      	<AccordionItem header="suslo" body="musaslo"/>
       	</div>
 	)
 }

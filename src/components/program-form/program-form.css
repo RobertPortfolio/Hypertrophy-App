@@ -1,0 +1,20 @@
+.label-custom {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+}
+
+.bg-1 {
+    background-color: #252525;
+}
+
+.bg-2 {
+    background-color: #1E1E1E;
+}
+
+.bg-3 {
+    background-color: #0F1A2B;
+}
+
+.bg-4 {
+    background-color: #1C2833;
+}

@@ -4,14 +4,14 @@ import { translate } from '../translations';
 import { Form, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import './session-details-form.css';
 
-const SessionDetailsForm = ({handleSubmit, handleChange, handleChangeSet, formData, handleAddExercise, handleAddSet, handleDeleteSet}) => {
+const SessionDetailsForm = ({handleSubmit, handleChange, handleChangeExercise, handleChangeSet, formData, handleAddExercise, handleAddSet, handleDeleteSet}) => {
 	
 	const lang = useSelector(state => state.language.lang);
 
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form onSubmit={handleSubmit} className="p-3">
 
-			<Form.Label className="day-custom my-3">{formData.day}:</Form.Label>
+			<Form.Label className="day-custom mb-3">{formData.day}:</Form.Label>
 			{formData.exercises.map((exercise, index) => 
 			<div key={exercise.id}>
 				<Form.Group controlId="exerciseName" className="mb-3">
@@ -20,15 +20,15 @@ const SessionDetailsForm = ({handleSubmit, handleChange, handleChangeSet, formDa
 			          placeholder={translate('enterExercise', lang)}
 			          name="name"
 			          value={exercise.name}
-			          onChange={(e)=>handleChange(e, exercise.id)}
+			          onChange={(e)=>handleChangeExercise(e, exercise.id)}
 			          className="input-custom bg-dark text-light border-1 rounded-0 text-center"
 			        />
 			    </Form.Group>
 			    <div className="mb-1 row justify-content-around">
 			    	<div className="col-1"></div>
-				    <Form.Label className=" col-3 text-center">{translate('weight', lang)}</Form.Label>
-				    <Form.Label className="col-3 text-center">{translate('reps', lang)}</Form.Label>
-				    <Form.Label className="col-3 text-center">
+				    <Form.Label className="uppercase col-3 text-center">{translate('weight', lang)}</Form.Label>
+				    <Form.Label className="uppercase col-3 text-center">{translate('reps', lang)}</Form.Label>
+				    <Form.Label className="uppercase col-3 text-center">
 				    	<OverlayTrigger
 					      placement="bottom"
 					      overlay={<Tooltip id="tooltip-bottom">{translate('rirDescription', lang)}</Tooltip>}
@@ -92,6 +92,17 @@ const SessionDetailsForm = ({handleSubmit, handleChange, handleChangeSet, formDa
             <Button variant="outline-success" type="submit">
                 {translate('submit', lang)}
             </Button>
+            <div className="p-3 bg-dark text-light rounded my-3">
+			  <label htmlFor="darkTextarea" className="form-label">{translate('sessionNotes', lang)}</label>
+			  <textarea 
+			    className="form-control bg-dark text-light border-secondary" 
+			    id="darkTextarea" 
+			    rows="5" 
+			    name="notes"
+			    value={formData.notes}
+			    onChange={(e)=>handleChange(e)}>
+			  </textarea>
+			</div>
 
 		</Form>
 	)
