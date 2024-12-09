@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { jwtDecode } from 'jwt-decode';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../actions';
 import Header from '../header';
 import { Routes, Route } from 'react-router-dom';
 import { 
@@ -13,11 +16,28 @@ import {
 	AddProgramPage,
 	UpdateProgramPage,
 	ProgramDetailsPage,
+	RegisterPage,
+	LoginPage,
 } from '../pages';
-import { Register, Login, Logout } from '../auth-test';
 import './app.css';
 
 const App = () => {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            try {
+                const userToken = jwtDecode(token);
+                console.log(`Decoded user:`, userToken);
+                dispatch(loginSuccess(userToken));
+            } catch (error) {
+                console.error('Error decoding token:', error);
+            }
+        }
+    }, [dispatch]);
 
 	return (
 		<div className="container-fluid p-0">
@@ -39,9 +59,8 @@ const App = () => {
 					<Route path="/programs/:id" element={<ProgramDetailsPage />}/>
 					<Route path="/programs/update/:id" element={<UpdateProgramPage />}/>
 
-					<Route path="/register" element={<Register />} />
-                	<Route path="/login" element={<Login />} />
-                	<Route path="/logout" element={<Logout />} />
+					<Route path="/register" element={<RegisterPage />} />
+                	<Route path="/login" element={<LoginPage />} />
 				</Routes>
 			</div>
 		</div>

@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 const HomePage = () => {
  
   	const lang = useSelector(state => state.language.lang);
+  	const user = useSelector(state => state.auth.user);
 
 	return (
-		<div>{translate('homepage', lang)}</div>
+		<div>{user ? user.username : translate('homepage', lang)}</div>
 	)
 };
 

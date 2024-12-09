@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import LanguageSwitch from '../language-switch';
 import { useSelector } from 'react-redux';
 import { translate } from '../translations';
+import { Logout } from '../auth-test';
 import './header.css';
 
 const MobileHeader = () => {
 
   const lang = useSelector(state => state.language.lang);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   const [show, setShow] = useState(false);
 
@@ -65,6 +67,27 @@ const MobileHeader = () => {
                     {translate('about', lang)}
                   </Link>
                 </li>
+                {isAuthenticated ? 
+                  <Logout /> : 
+                  <>
+                    <li className="list-group-item mb-3">
+                      <Link 
+                        to="login"
+                        className="custom-link"
+                        onClick={handleToggle}>
+                        Login
+                      </Link>
+                    </li>
+                    <li className="list-group-item mb-3">
+                      <Link 
+                        to="register"
+                        className="custom-link"
+                        onClick={handleToggle}>
+                        Register
+                      </Link>
+                    </li>
+                  </>
+                }
               </ul>
             </Offcanvas.Body>
           </Offcanvas>

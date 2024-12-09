@@ -173,9 +173,28 @@ const login = (data) => async (dispatch, getState, { programsService, authServic
     }
 }
 
+const logoutRequested = () => ({
+    type: 'LOGOUT_REQUESTED',
+});
+
 const logoutSuccess = () => ({
     type: 'LOGOUT_SUCCESS',
 });
+
+const logoutError = (error) => ({
+    type: 'LOGOUT_ERROR',
+    payload: error,
+});
+
+const logout = () => async (dispatch, getState, { programsService, authService }) => {
+    dispatch(logoutRequested());
+    try {
+        const response = await authService.logout(); // Используй API для получения данных
+        dispatch(logoutSuccess(response.user));
+    } catch (error) {
+        dispatch(logoutError(error.message));
+    }
+}
 
 export {
 	setLanguage,
@@ -192,7 +211,7 @@ export {
     addProgram,
     updateProgram,
     loginSuccess,
-    logoutSuccess,
+    logout,
     register,
     login,
 };

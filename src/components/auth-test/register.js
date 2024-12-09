@@ -5,7 +5,7 @@ import { register } from '../../actions';
 const Register = () => {
     const [formData, setFormData] = useState({ username: '', email: '', password: '' });
 
-    const { message, loading, error } = useSelector(state=>state.auth)
+    const { message, loading, registerError } = useSelector(state=>state.auth)
 
     const dispatch = useDispatch();
     
@@ -15,18 +15,36 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await dispatch(register(formData));
-       
+        await dispatch(register(formData)); 
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <input name="username" onChange={handleChange} value={formData.username} placeholder="Username" />
-            <input name="email" onChange={handleChange} value={formData.email} placeholder="Email" />
-            <input name="password" type="password" onChange={handleChange} value={formData.password} placeholder="Password" />
+            <input 
+                name="username" 
+                onChange={handleChange} 
+                value={formData.username} 
+                placeholder="Username"  
+                autoComplete="username"
+            />
+            <input 
+                name="email" 
+                onChange={handleChange} 
+                value={formData.email} 
+                placeholder="Email" 
+                autoComplete="email" 
+            />
+            <input 
+                name="password" 
+                type="password" 
+                onChange={handleChange} 
+                value={formData.password} 
+                placeholder="Password" 
+                autoComplete="new-password"
+            />
             <button type="submit">Register</button>
             {loading && <p>loading...</p>}
-            {error && <p>{error}</p>}
+            {registerError && <p>{registerError}</p>}
             {message && <p>{message}</p>}
         </form>
     );

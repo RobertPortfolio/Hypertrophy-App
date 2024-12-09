@@ -5,7 +5,9 @@ const updateAuth = (state, action) => {
 		  	isAuthenticated: false,
     		user: null,
     		loading: false,
-    		error: null,
+    		loginError: null,
+    		registerError: null,
+    		logoutError: null,
     		message: null,
 		};
   	}
@@ -14,14 +16,14 @@ const updateAuth = (state, action) => {
   		case 'REGISTER_REQUESTED':
             return {
                 ...state.auth,
-                error: null,
+                registerError: null,
                 loading: true,
             };
         case 'REGISTER_ERROR':
             return {
                 ...state.auth,
                 loading: false,
-                error: action.payload,
+                registerError: action.payload,
             };
         case 'REGISTER_SUCCESS':
             return {
@@ -32,14 +34,14 @@ const updateAuth = (state, action) => {
         case 'LOGIN_REQUESTED':
             return {
                 ...state.auth,
-                error: null,
+                loginError: null,
                 loading: true,
             };
         case 'LOGIN_ERROR':
             return {
                 ...state.auth,
                 loading: false,
-                error: action.payload,
+                loginError: action.payload,
             };
         case 'LOGIN_SUCCESS':
             return {
@@ -47,12 +49,23 @@ const updateAuth = (state, action) => {
                 loading: false,
                 isAuthenticated: true,
                 user: action.payload,
-            };    
+            };   
+        case 'LOGOUT_REQUESTED':
+            return {
+                ...state.auth,
+                loading: true,
+               	logoutError: null,
+            }; 
+        case 'LOGOUT_ERROR':
+            return {
+                ...state.auth,
+                loading: false,
+                logoutError: action.payload,
+            };
         case 'LOGOUT_SUCCESS':
             return {
                 ...state.auth,
                 loading: false,
-                error: null,
                 isAuthenticated: false,
                 user: null,
             };

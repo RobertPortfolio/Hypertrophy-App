@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import LanguageSwitch from '../language-switch';
 import { useSelector } from 'react-redux';
 import { translate } from '../translations';
+import { Logout } from '../auth-test';
 import './header.css';
 
 const DesktopHeader = () => {
 
   const lang = useSelector(state => state.language.lang);
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   return (
       <div className="height-65 row justify-content-between align-items-center">
@@ -48,7 +50,22 @@ const DesktopHeader = () => {
         </div>
 
         <div className="col-auto">
-          <LanguageSwitch />
+          <ul className="nav">
+            {isAuthenticated ? 
+              <Logout /> : 
+              <>
+                <li>
+                  <Link to="login" className="nav-link">Login</Link>
+                </li>
+                <li>
+                  <Link to="register" className="nav-link">Register</Link>
+                </li>
+              </>
+            }
+            <li>
+              <LanguageSwitch />
+            </li>
+          </ul>
         </div>
       </div>
    
