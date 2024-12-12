@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/Hypertrophy-App/static/css/main.d82dd53f.css",
-    "main.js": "/Hypertrophy-App/static/js/main.88956797.js",
+    "main.css": "/Hypertrophy-App/static/css/main.cf88bf27.css",
+    "main.js": "/Hypertrophy-App/static/js/main.618a221e.js",
     "static/media/body-fat-percentage-men-women.png": "/Hypertrophy-App/static/media/body-fat-percentage-men-women.30672840b5be18466edf.png",
+    "static/media/logo.png": "/Hypertrophy-App/static/media/logo.55d38ec8854b6a3ba27f.png",
     "index.html": "/Hypertrophy-App/index.html",
-    "main.d82dd53f.css.map": "/Hypertrophy-App/static/css/main.d82dd53f.css.map",
-    "main.88956797.js.map": "/Hypertrophy-App/static/js/main.88956797.js.map"
+    "main.cf88bf27.css.map": "/Hypertrophy-App/static/css/main.cf88bf27.css.map",
+    "main.618a221e.js.map": "/Hypertrophy-App/static/js/main.618a221e.js.map"
   },
   "entrypoints": [
-    "static/css/main.d82dd53f.css",
-    "static/js/main.88956797.js"
+    "static/css/main.cf88bf27.css",
+    "static/js/main.618a221e.js"
   ]
 }
